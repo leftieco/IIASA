@@ -20,7 +20,7 @@ wheat_production_raster <- yield_raster * harvest_raster / (10^9)
 export_path <- "output/wheat_production_map.tif"
 
 # Export the raster as a GeoTIFF file
-writeRaster(wheat_production_raster, export_path, format = "GTiff")
+writeRaster(wheat_production_raster, export_path, format = "GTiff", overwrite = TRUE)
 
 ###Produce a global map
 install.packages(c("rasterVis"))
@@ -48,22 +48,29 @@ dev.off()
 
 ###Task 2
 library(rgdal)
-library(sp)
-
 # Set the path to the GAUL shapefile
-gaul_path <- "data/GAUL/g2015_2005_2.shp"
+# gaul_path <- "data/GAUL/g2015_2005_2.shp"
 
 # Read the GAUL shapefile
-gaul_shapefile <- readOGR(gaul_path)
+# gaul_shapefile <- readOGR(gaul_path)
 
 # Aggregate polygons by country
-gaul_aggregated <- aggregate(gaul_shapefile, by = "ADM0_NAME")
+# gaul_country <- aggregate(gaul_shapefile, by = "ADM0_NAME")
+
+###Due to the processing power limitations, aggregation could not be performed. The task was completed
+###using the national units taken from https://data.europa.eu/data/datasets/jrc-10112-10004?locale=en
+
+# Set the path to the GAUL0 shapefile
+gaul0_path <- "data/GAUL0/gaul0_asap.shp"
+
+# Read the GAUL shapefile
+gaul0_shapefile <- readOGR(gaul0_path)
 
 # Aggregate wheat production to country level
-wheat_production_country <- raster::extract(wheat_production_raster, gaul_aggregated, fun = sum, na.rm = TRUE)
+wheat_production_country <- raster::extract(wheat_production_raster, gaul0_shapefile, fun = sum, na.rm = TRUE)
 
 # Create a data frame with country names and production values
-production_df <- data.frame(Country = gaul_aggregated$ADM0_NAME, Wheat_Production = wheat_production_country)
+production_df <- data.frame(Country = gaul0_shapefile$ADM0_NAME, Wheat_Production = wheat_production_country)
 
 # Set the path to export the CSV file
 export_path <- "output/wheat_production_country.csv"
