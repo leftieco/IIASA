@@ -2,7 +2,7 @@
 
 # 4c. From the data available it can be deduced that the countries with a higher NUE ratio tend to have less pronounced nitrogen loss in absolute numbers. Developing economies, such as China, India, and Pakistan, have a higher nitrogen output; at the same time, these countries nitrogen exprience less  nitrogien loss relative to nitrogen output when compared to developed economies, such ass Australia, France, USA, and Russia, where nitrogen loss outpaces the nirogen imput.
 
-# 5. The analysis performed could of grreat use to some elements of the BNR's suite, epsecially GLOBioM
+# 5. The analysis performed can of great use to some elements of the BNR's suite. In particular, such analysis could be expanded using the EPIC-IIASA model for crop management analysis and bring new insights about the global nitrogen cycle disturbances at the national (and potentially regional) level. This approaches could also be translated to the GLOBIOM model to trace the effect of agriculture expansion and land conversion on nitrogen retention in the soil. The performed analysis could even inform nitrogen loss capping policy at the global scale, however, data obsolence and its low resolution should be highlighted as main limiting factors for further studies.
 
 
 # 6.1 Due to the processing power limitations, aggregation above could not be performed neither on the working machine or the laternative machine. The task was completed
