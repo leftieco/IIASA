@@ -1,4 +1,4 @@
-install.packages(c("raster", "rgdal", "sp", "dplyr", "tidyverse", "ggplot2"))
+install.packages(c("raster", "rgdal", "sp", "dplyr", "tidyverse", "ggplot2", "rasterVis", "sf"))
 
 ### Task 1
 library(raster)
@@ -23,7 +23,6 @@ export_path <- "output/wheat_production_raster.tif"
 writeRaster(wheat_production_raster, export_path, format = "GTiff", overwrite = TRUE)
 
 ###Produce a global map
-install.packages(c("rasterVis"))
 library(rasterVis)
 library(ggplot2)
 
@@ -47,7 +46,6 @@ dev.off()
 
 ###Task 2
 library(rgdal)
-install.packages("sf")
 library(sf)
 library(terra)
 # Set the path to the GAUL shapefile
